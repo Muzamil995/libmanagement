@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1005097163732",
+    "project_id": "dummy-3985c",
+    "storage_bucket": "dummy-3985c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005097163732:android:1439eca02d5ded9be21441",
+        "android_client_info": {
+          "package_name": "com.example.flutterlearner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr53BEafe2vcUYfXc9SYFMr9g3AL6UGBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
