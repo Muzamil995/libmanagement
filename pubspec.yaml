@@ -45,6 +45,7 @@ dependencies:
   googleapis_auth:
   provider:
   shared_preferences:
+  percent_indicator: ^4.2.4
 
 
 dev_dependencies:
