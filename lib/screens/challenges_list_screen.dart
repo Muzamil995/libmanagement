@@ -9,9 +9,9 @@ class ChallengesListScreen extends StatefulWidget {
 
 class _ChallengesListScreenState extends State<ChallengesListScreen> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  final Random _random = Random(); // Instance of Random
+  final Random _random = Random();  
 
-  // Sample List of Available Challenges
+   
   final List<Map<String, String>> challenges = [
     {"title": "30-Day Running", "description": "Run every day for 30 minutes."},
     {"title": "Push-up Challenge", "description": "Increase push-ups daily."},
@@ -19,15 +19,14 @@ class _ChallengesListScreenState extends State<ChallengesListScreen> {
     {"title": "Yoga Challenge", "description": "Practice yoga for 15 minutes daily."},
   ];
 
-  // Function to Join a Challenge and Store in Firebase with Random Progress
-  Future<void> joinChallenge(String title, String description) async {
+   Future<void> joinChallenge(String title, String description) async {
     try {
-      double randomProgress = _random.nextDouble(); // Generate random progress (0.0 - 1.0)
+      double randomProgress = _random.nextDouble(); 
 
       await _firestore.collection("joined_challenges").add({
         "title": title,
         "description": description,
-        "progress": randomProgress, // Send Random Progress
+        "progress": randomProgress,  
         "timestamp": FieldValue.serverTimestamp(),
       });
 
@@ -35,8 +34,7 @@ class _ChallengesListScreenState extends State<ChallengesListScreen> {
         SnackBar(content: Text("Joined: $title with ${(randomProgress * 100).toInt()}% progress")),
       );
 
-      // Navigate back with the selected challenge
-      Future.delayed(Duration(seconds: 1), () {
+       Future.delayed(Duration(seconds: 1), () {
         Navigator.pop(context, title);
       });
     } catch (e) {
@@ -47,13 +45,17 @@ class _ChallengesListScreenState extends State<ChallengesListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Available Challenges")),
+         backgroundColor: Color(0xff396877),
+      appBar: AppBar(title: Text("Available Challenges",style:TextStyle(
+        color:Color(0xffd0ecfa),)),
+         backgroundColor: Color(0xff396877),),
       body: ListView.builder(
         itemCount: challenges.length,
         itemBuilder: (context, index) {
           final challenge = challenges[index];
           return Card(
             child: ListTile(
+              tileColor: Color(0xffd0ecfa),
               title: Text(challenge["title"]!),
               subtitle: Text(challenge["description"]!),
               trailing: ElevatedButton(

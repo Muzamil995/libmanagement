@@ -60,11 +60,14 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff396877),
       appBar: AppBar(title: Text("Fitness Dashboard",
           style:TextStyle(
-        color:Color(0xff7a296f),
+        color:Color(0xffd0ecfa),
       )),
-          ,centerTitle: true),
+          centerTitle: true,
+          backgroundColor: Color(0xff396877),),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -95,7 +98,9 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 20),
 
 
-            Text("Your Challenges", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            Text("Your Challenges", style: TextStyle(fontSize: 20,
+                color:Color(0xffd0ecfa),
+                fontWeight: FontWeight.bold)),
             SizedBox(height: 10),
 
             Expanded(
@@ -128,7 +133,10 @@ class HomeScreen extends StatelessWidget {
                             );
                           },
                           child: ListTile(
-                            title: Text(challenge["title"]),
+                            tileColor: Color(0xffd0ecfa),
+                            title: Text(challenge["title"],style: TextStyle(
+                              color: Color(0xff7a296f)
+                            ),),
                             subtitle: LinearProgressIndicator(
                               value: challenge["progress"] / 100,
                               backgroundColor: Colors.grey[300],
@@ -162,8 +170,10 @@ class HomeScreen extends StatelessWidget {
                       print("User joined: $selectedChallenge");
                     }
                   },
-                  child: Text("Join a New Challenge"),
-                ),
+                  child: Text("Join a New Challenge",style: TextStyle(
+                    color: Colors.black)
+                  ),),
+                
               ],
             ),
           ],
